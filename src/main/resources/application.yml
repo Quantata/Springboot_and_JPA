@@ -1,1 +1,19 @@
-test
+spring:
+  datasource:  # db접근은
+    url: jdbc-URL
+    username: sa
+    password: psw
+    driver-class-name: org.h2.Driver   # database connection과 같은 database 설정 완료
+
+  # 다시 여기서부터
+  jpa:
+    hibernate:
+      ddl-auto: create # 자동으로 테이블 생성
+    properties:        # springboot manual에 가서 공부해야함
+      hibernate:
+        #        show_sql: true    # System.out을 통해 찍는 것. logger로 찍어주니 주석처리
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug  # JPA hibernate가 생성하는 모든 SQL이 보임
